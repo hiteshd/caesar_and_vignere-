@@ -1,0 +1,100 @@
+To compile the above programs at prompt use.
+On Lab debian VM
+$cc -o caesar caesar.c
+
+On Ubuntu 10.04 or above
+$gcc -o caesar caesar.c
+
+On Mac OS X Mountain Lion
+$gcc -o caesar caesar.c 
+
+------------------------
+Usage for Caesar Cipher.
+------------------------
+
+Program accepts three arguments. 
+The first one is the plain text
+the second one is the Key
+the third one is the mode.
+
+'e' runs the algorithm in encrpyt mode
+'d' runs the algorithm in decrypt mode
+
+For the above program, The key is specified as a letter. If the key is 'A' There is no change even after encryption as the shift of the letters will be 0
+
+Plaintext that is longer than a word has to be enclosed in qoutes to escape spaces. 
+Only alpanumeric characters are encryped using caesars cipher. all non-alphanumeric characters are left in the ciphertext as they are in the plain text(including spaces)
+
+For example: 
+# ./caesar HELLO A e
+Mode: e
+Input: HELLO
+Output : HELLO
+
+# ./caesar "THIS IS A REALLY LONG STRING BUT NOT THAT LONG" B e
+Mode: e
+Input: THIS IS A REALLY LONG STRING BUT NOT THAT LONG
+Output : UIJT JT B SFBMMZ MPOH TUSJOH CVU OPU UIBU MPOH
+
+To decrypt
+# ./caesar HELLO A d
+Mode: d
+Input: HELLO
+Output : HELLO
+
+# ./caesar "UIJT JT B SFBMMZ MPOH TUSJOH CVU OPU UIBU MPOH" B d
+Mode: d
+Input: UIJT JT B SFBMMZ MPOH TUSJOH CVU OPU UIBU MPOH
+Output : THIS IS A REALLY LONG STRING BUT NOT THAT LONG
+
+
+--------------------------
+Usage for Vigenere Cipher.
+--------------------------
+
+Program accepts three arguments. 
+The first one is the plain text
+and the second one is the Key.
+the third one is the mode.
+
+'e' runs the algorithm in encrpyt mode
+'d' runs the algorithm in decrypt mode
+
+For the above program, The key is specified as a letter. If the key is 'A' There is no change even after encryption as the shift of the letters will be 0
+
+Plaintext that is longer than a word has to be enclosed in qoutes to escape spaces. 
+Only alpanumeric characters are encryped using vigenere cipher. all non-alphanumeric characters are left in the ciphertext as they are in the plain text(including spaces)
+
+The Key for this implementation cannot contanin spaces.
+For example: 
+
+# ./vigenere HELLO ABC e
+Mode: e
+Input: HELLO
+Output : HFNLP
+
+# ./vigenere "THIS IS A REALLY LONG STRING" ABC e
+Mode: e
+Input: THIS IS A REALLY LONG STRING
+Output : TIKS KS C SGAMNY NOOI TVRJPG
+
+# ./vigenere "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG" STUVWXYZ e
+Mode: e
+Input: THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+Output : LAY MRGBC VMKTL XHR FRKOK IQAO SZX GWWW VHA
+
+To Decrypt
+# ./vigenere HFNLP ABC d
+Mode: d
+Input: HFNLP
+Output : HELLO
+
+# ./vigenere "TIKS KS C SGAMNY NOOI TVRJPG" ABC d
+Mode: d
+Input: TIKS KS C SGAMNY NOOI TVRJPG
+Output : THIS IS A REALLY LONG STRING
+
+# ./vigenere "LAY MRGBC VMKTL XHR FRKOK IQAO SZX GWWW VHA" STUVWXYZ d
+Mode: d
+Input: LAY MRGBC VMKTL XHR FRKOK IQAO SZX GWWW VHA
+Output : THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
